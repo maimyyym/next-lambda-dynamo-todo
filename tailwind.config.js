@@ -7,12 +7,18 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      fontfamily : {
+        body: ['"Noto sans JP"'],
       },
-    },
+      colors: {
+        purple: '#B5A2C5',
+        lightPurple: '#D2CAD8',
+        lightBlue: '#DCE4EB',
+        darkGray: '#808080',
+        lightGray: '#999999',
+        darkBlack:　'#505050'
+      }
+   },
   },
   plugins: [],
 }
