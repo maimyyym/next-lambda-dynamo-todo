@@ -1,13 +1,12 @@
 import React, {ReactNode} from "react";
 
-export type TitleProps = {
+export type HomeTitleProps = {
     children: ReactNode;
 };
 
-export const Title: React.VFC<TitleProps> = ({ children }) => {
+export const HomeTitle: React.VFC<HomeTitleProps> = ({ children }) => {
     return (
         <p className="text-2xl text-darkBlack">{children}</p>
 
     );
 };
-

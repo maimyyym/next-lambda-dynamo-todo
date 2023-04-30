@@ -1,22 +1,23 @@
 import React from "react";
-import { Title } from "../atoms/Title";
-import { Date } from "../atoms/Date";
+import { TaskListTitle } from "../atoms/TaskListTitle";
 import { Button } from "../atoms/Button";
+import { DateInput } from "../atoms/DateInput";
 
 export type TaskHeaderProps = {
+    value: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>)=>void;
 
 };
 
-export const TaskHeader: React.VFC<TaskHeaderProps> = () => {
+export const TaskHeader: React.VFC<TaskHeaderProps> = ({ value, onChange }) => {
     return (
         <div className="flex items-center justify-between">
-            <Title>Today's Task</Title>
+            <TaskListTitle>Today's Task</TaskListTitle>
             <div className="flex items-center">
-            <Date>2023/04/22</Date>
-            <Button>Show tasks</Button>
-            </div>
+                <DateInput value={value} onChange={onChange} />
+                <Button>Show tasks</Button>
         </div>
-       
+       </div>
     );
 };
 

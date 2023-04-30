@@ -6,7 +6,7 @@ export type TaskCardBoxProps = {
 
 export const TaskCardBox: React.VFC<TaskCardBoxProps> = ({ children }) => {
     return (
-        <div className="flex justify-between w-full h-10 p-2 bg-white rounded-lg border-l-6 border-lightGray">
+        <div className="flex justify-between w-full h-10 p-2 m-1 bg-white rounded-lg border-l-6 border-lightGray">
             {children}
         </div>
        

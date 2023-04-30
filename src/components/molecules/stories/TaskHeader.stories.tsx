@@ -12,12 +12,10 @@ const Template: Story<TaskHeaderProps> = (args) => <TaskHeader {...args} />;
 
 export const TaskHeaderPrimary = Template.bind({});
 TaskHeaderPrimary.args = {
-  children: 'Primary',
 };
 
 export const TaskHeaderSecondary = Template.bind({});
 TaskHeaderSecondary.args = {
-  children: 'Secondary',
 };
 
 

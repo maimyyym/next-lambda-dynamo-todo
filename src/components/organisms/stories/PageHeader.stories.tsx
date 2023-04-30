@@ -12,12 +12,10 @@ const Template: Story<PageHeaderProps> = (args) => <PageHeader {...args} />;
 
 export const PageHeaderPrimary = Template.bind({});
 PageHeaderPrimary.args = {
-  children: 'Primary',
 };
 
 export const PageHeaderSecondary = Template.bind({});
 PageHeaderSecondary.args = {
-  children: 'Secondary',
 };
 
 
