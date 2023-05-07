@@ -1,12 +1,15 @@
-import React from "react";
+import React from 'react';
 
 export type DoneButtonProps = {
-    onClick: ()=> void;
+    onClick: () => void;
 };
 
 export const DoneButton: React.VFC<DoneButtonProps> = ({ onClick }) => {
     return (
-        <button className="w-3 h-3 rounded-full bg-darkGray" onClick={onClick} />
+        <button
+            className="w-3 h-3 rounded-full bg-darkGray"
+            onClick={onClick}
+        />
     );
 };
 

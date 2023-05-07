@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export type InputProps = {
     type: string;
@@ -15,17 +15,17 @@ export const Input: React.VFC<InputProps> = ({
     id,
     value,
     placeholder,
-    onChange
+    onChange,
 }) => {
     return (
-        <input type={type}
-                name={name}
-                id={id}
-                value={value}
-                onChange={onChange}
-                placeholder={placeholder}
+        <input
+            type={type}
+            name={name}
+            id={id}
+            value={value}
+            onChange={onChange}
+            placeholder={placeholder}
             className="p-1 text-xs rounded-lg w-800px focus:outline-none focus:border-2 focus:border-darkGray"
         />
     );
 };
-

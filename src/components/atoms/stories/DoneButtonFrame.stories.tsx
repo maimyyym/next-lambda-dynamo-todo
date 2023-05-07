@@ -5,20 +5,20 @@ import { DoneButtonFrame, DoneButtonFrameProps } from '../DoneButtonFrame';
 import DoneButton from '../DoneButton';
 
 export default {
-  title: 'Components/atoms/DoneButtonFrame',
-  component: DoneButtonFrame,
+    title: 'Components/atoms/DoneButtonFrame',
+    component: DoneButtonFrame,
 } as Meta;
 
-const Template: Story<DoneButtonFrameProps> = (args) => <DoneButtonFrame {...args} />;
+const Template: Story<DoneButtonFrameProps> = (args) => (
+    <DoneButtonFrame {...args} />
+);
 
 export const DoneButtonFramePrimary = Template.bind({});
 DoneButtonFramePrimary.args = {
-  children: <DoneButton />,
+    children: <DoneButton />,
 };
 
 export const DoneButtonFrameSecondary = Template.bind({});
 DoneButtonFrameSecondary.args = {
-  children: 'Secondary',
+    children: 'Secondary',
 };
-
-

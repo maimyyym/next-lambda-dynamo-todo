@@ -4,20 +4,18 @@ import { Story, Meta } from '@storybook/react';
 import { Text, TextProps } from '../Text';
 
 export default {
-  title: 'Components/atoms/Text',
-  component: Text,
+    title: 'Components/atoms/Text',
+    component: Text,
 } as Meta;
 
 const Template: Story<TextProps> = (args) => <Text {...args} />;
 
 export const TextPrimary = Template.bind({});
 TextPrimary.args = {
-  children: 'Primary',
+    children: 'Primary',
 };
 
 export const TextSecondary = Template.bind({});
 TextSecondary.args = {
-  children: 'Secondary',
+    children: 'Secondary',
 };
-
-

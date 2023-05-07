@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import { Button } from "./Button";
+import React, { useState } from 'react';
+import { Button } from './Button';
 
 export type DateInputProps = {
     value: string;
@@ -8,13 +8,20 @@ export type DateInputProps = {
     handleDateInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export const DateInput: React.VFC<DateInputProps> = ({ value, onChange, handleSubmit, handleDateInputChange }) => {
-
-
+export const DateInput: React.VFC<DateInputProps> = ({
+    value,
+    onChange,
+    handleSubmit,
+    handleDateInputChange,
+}) => {
     return (
         <form onSubmit={handleSubmit}>
-        <input type="date" value={value} onChange={handleDateInputChange} className="p-0.5 m-1 text-xs rounded-lg w-800px focus:outline-none focus:border-2 focus:border-darkGray" />
-      </form>
+            <input
+                type="date"
+                value={value}
+                onChange={handleDateInputChange}
+                className="p-0.5 m-1 text-xs rounded-lg w-800px focus:outline-none focus:border-2 focus:border-darkGray"
+            />
+        </form>
     );
 };
-
