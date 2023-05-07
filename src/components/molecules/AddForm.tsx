@@ -5,48 +5,32 @@ import { createTask } from "../../utils/api/createTask"
 import { DateInput } from "../atoms/DateInput";
 
 export type AddFormProps = {
-
+    type: string
+    name: string
+    id: string
+    value: string
+    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    handleChangeDate: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 };
 
-export const AddForm: React.VFC<AddFormProps> = () => {
-    const [title, setTitle] = useState<string | ''>('');
-    const today = new Date();
-    const [dueDate, setDueDate] = useState<string>(today.toString());
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setTitle(event.target.value);
-    };
-
-    const handleChangeDate = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setDueDate(event.target.value);
-    };
-
-    const handleSubmit = async(event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        const done = false;
-
-        try {
-            const createTaskData = await createTask(title, dueDate, done);
-            console.log(createTaskData);
-        } catch(error) {
-            console.log(error.message);
-        }
-    };
+export const AddForm: React.VFC<AddFormProps> = ({ type, name, id, value, handleChange, handleChangeDate, handleSubmit }) => {
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
             <Input  
-                type="text"
-                name="title"
-                id="title"
-                value={title}
+                type={type}
+                name={name}
+                id={id}
+                value={value}
                 placeholder="Add your task!"
                 onChange={handleChange} />
                 <input type="hidden" name="done" value="false" />
-            <DateInput value={dueDate} onChange={handleChangeDate} />
+        <input type="date"  onChange={handleChangeDate} className="p-0.5 m-1 text-xs rounded-lg w-800px focus:outline-none focus:border-2 focus:border-darkGray" />
             <Button type="submit">Add</Button>
-            </form>
+                      </form>
+
         </div>
        
     );

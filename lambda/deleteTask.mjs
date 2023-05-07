@@ -3,7 +3,7 @@ import AWS from "aws-sdk";
 const { DynamoDB } = AWS;
 const dynamoDb = new DynamoDB.DocumentClient();
 
-export const deleteTask = async (event) => {
+export const handler = async (event) => {
 
     const params = {
         TableName: "Tasks",
@@ -12,16 +12,21 @@ export const deleteTask = async (event) => {
         },
     };
 
-
     try {
         await dynamoDb.delete(params).promise();
         return {
+            headers: { 
+            "Access-Control-Allow-Origin" : "*"
+            },
             statusCode: 200,
             body: JSON.stringify({}),
         };
     } catch (error) {
         console.error("Error", error);
         return {
+            headers: { 
+            "Access-Control-Allow-Origin" : "*"
+            },
             statusCode: 500,
             body: JSON.stringify({ error: "Failed...:(" }),
         };

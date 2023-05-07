@@ -9,7 +9,6 @@ export type HomeProps = {
 export const Home: React.VFC<HomeProps> = () => {
     return (
         <div className="w-full h-full m-auto">
-            <PageHeader />
             <TaskList />
         </div>
        

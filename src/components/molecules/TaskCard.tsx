@@ -5,46 +5,37 @@ import DoneButton from "../atoms/DoneButton";
 import DoneButtonFrame from "../atoms/DoneButtonFrame";
 import TaskTitle from "../atoms/TaskTitle";
 import { TaskCardBox } from "../atoms/TaskCardBox";
-import { doneTask } from "../../utils/api/doneTask";
+import { doneTask } from "@/utils/api/doneTask";
 
 export type TaskCardProps = {
   title: string;
   dueDate: string;
-  done: boolean;
+  toggleDoneTrue: (title: string, dueDate: string) => void;
+  toggleDoneFalse: (title: string, dueDate: string) => void;
+  isDone: boolean;
+  deleteTask: (id: string) => void;
+  type?: "button" | "submit" | "reset";
+  id: string;
 };
 
 export const TaskCard: React.VFC<TaskCardProps> = ({
   title,
   dueDate,
-  done
+  toggleDoneTrue,
+  toggleDoneFalse,
+  isDone,
+  deleteTask,
+  id,
+  type
 }) => {
-  const [isDone, setIsDone] = useState(done);
 
-  const toggleDoneTrue = () => {
-    setIsDone(true);
-    try {
-      const doneTaskData = doneTask(title, dueDate, isDone);
-    } catch(error) {
-      console.log(error.message);
-    }
-  };
-
-  const toggleDoneFalse = () => {
-    setIsDone(false);
-    try {
-      const doneTaskData = doneTask(title, dueDate, isDone);
-    } catch(error) {
-      console.log(error.message);
-    }
-
-  };
 
     return (
       <div className="flex justify-center m-0">
         <TaskCardBox>
           <div className="flex items-center">
-            { isDone ? (<DoneButtonFrame ><DoneButton onClick={toggleDoneFalse} /></DoneButtonFrame>
-                       ) : ( <DoneButtonFrame onClick={toggleDoneTrue} /> )}
+            { isDone ? (<DoneButtonFrame ><DoneButton onClick={() => toggleDoneFalse(title, dueDate)} /></DoneButtonFrame>
+                       ) : ( <DoneButtonFrame onClick={() => toggleDoneTrue(title, dueDate)} /> )}
           { isDone ? (
             <del className="text-darkGray">
         <TaskTitle>{title}</TaskTitle>
@@ -56,7 +47,7 @@ export const TaskCard: React.VFC<TaskCardProps> = ({
             </div>
           <div className="flex items-center">
             <Date>{dueDate}</Date>
-        <Button>Edit</Button>
+        <Button id={id} type={type} onClick={deleteTask}>Delete</Button>
             </div>
         </TaskCardBox>
       </div>

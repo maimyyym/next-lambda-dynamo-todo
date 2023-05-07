@@ -7,10 +7,9 @@ export type TaskFooterProps = {
 
 export const TaskFooter: React.VFC<TaskFooterProps> = () => {
     return (
-        <div className="flex justify-end ">
-            <Button >...View all</Button> 
+        <div className="flex justify-end">
+        <Button >...View all</Button> 
         </div>
-       
     );
 };
 

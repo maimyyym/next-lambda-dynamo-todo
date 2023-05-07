@@ -1,6 +1,5 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-
 import { HomeTitle, HomeTitleProps } from '../HomeTitle';
 
 export default {
